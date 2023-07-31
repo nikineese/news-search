@@ -1,0 +1,28 @@
+.search-input {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  &__label {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__box {
+    border-radius: 5px;
+    box-shadow: 0 8px 24px 0 #0000000D;
+    border: 1px solid #EAEAEA;
+    width: 600px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+  }
+  &__input {
+    outline: none;
+    border: none;
+    color: #575757;
+    width: 100%;
+    font-size: 16px;
+  }
+}

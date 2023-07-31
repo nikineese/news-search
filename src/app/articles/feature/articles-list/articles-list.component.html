@@ -1,0 +1,24 @@
+<ng-template #loading>
+  <app-loader [center]="true" />
+</ng-template>
+<ng-container *ngIf="articles$ | async | sortArticles:searchText as articles; else loading">
+  <div class="articles">
+    <div class="articles__results">
+      <span>Results: {{ articles.length }}</span>
+    </div>
+    <div class="articles__list">
+        <mat-card *ngFor="let a of articles ">
+          <img mat-card-image [ngSrc]="a.image_url" [alt]="a.title" width="400" height="217" priority="">
+          <mat-card-content class="article-item">
+              <app-icon-date [date]="a.published_at"/>
+              <span class="article-item__title" [innerHTML]="this.sanitizer.sanitize(SecurityContext.HTML,a.title | highlight:searchText:'partial')"></span>
+              <span class="article-item__summary" [innerHTML]="this.sanitizer.sanitize(SecurityContext.HTML,a.summary | truncate:[138] | highlight:searchText:'partial')"></span >
+              <a class="article-item__link-btn" mat-flat-button routerLink="/article" [queryParams]="{ id: a.id }">
+                  Read more
+                  <app-icon type="arrow" [size]="12" color="#363636"/>
+              </a>
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+</ng-container>

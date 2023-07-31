@@ -1,0 +1,31 @@
+.article-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 75px;
+  .article-box {
+    background: #fff;
+    box-shadow: 0 8px 24px 0 #0000000D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: column;
+    border: 1px solid #EAEAEA;
+    width: 1200px;
+    padding: 35px 75px;
+    &__title {
+      font-size: 24px;
+    }
+    &__description {
+      line-height: 27px;
+      font-size: 18px;
+    }
+    &__link-btn {
+      font-weight: 600;
+      margin-left: 75px;
+    }
+  }
+}

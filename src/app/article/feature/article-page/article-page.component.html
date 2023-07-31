@@ -1,0 +1,18 @@
+<ng-template #loading>
+  <app-loader [center]="true"/>
+</ng-template>
+<ng-container *ngIf="article$ | async as article; else loading">
+  <app-background-image [imageUrl]="article.image_url"/>
+  <div class="article-page">
+    <div class="article-page__content">
+      <div class="article-box">
+        <span class="article-box__title">{{article.title}}</span>
+        <span class="article-box__description">{{article.summary}}</span>
+      </div>
+      <a class="article-box__link-btn" mat-flat-button routerLink="/articles">
+        <app-icon type="arrow" [hor_flip]="true" [size]="12" color="#363636"/>
+        Back to home page
+      </a>
+    </div>
+  </div>
+</ng-container>
